@@ -1,15 +1,17 @@
 class MyQueue:
     def __init__(self):
-        self.arr=[]
-    
-    #Function to push an element x in a queue.
+        self.stack1 = []
+        self.stack2 = []
+
+    # Function to push an element x in a queue.
     def push(self, x):
-        return self.arr.append(x)
-         #add code here
-     
-    #Function to pop an element from queue and return that element.
+        self.stack1.append(x)
+
+    # Function to pop an element from queue and return that element.
     def pop(self): 
-        if len(self.arr)==0:
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+        if not self.stack2:
             return -1
-        return self.arr.pop(0)
-         # add code here
+        return self.stack2.pop()
